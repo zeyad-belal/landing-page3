@@ -62,17 +62,17 @@ let timeCount = setInterval(() => {
 
   // Find The Date Difference Between Now And Countdown Date
   let remaning = eventDate - dateNow;
-  
+
   // Get Time Units
   let days = Math.floor(remaning / (1000 * 60 * 60 * 24));
   let hours = Math.floor((remaning % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((remaning % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((remaning % (1000 * 60)) / 1000);
 
-  timeSpans[0].textContent = days;
-  timeSpans[1].textContent = hours;
-  timeSpans[2].textContent = minutes;
-  timeSpans[3].textContent = seconds;
+  timeSpans[0].textContent = days < 10? `0${days}`:days;
+  timeSpans[1].textContent = hours < 10? `0${hours}`:hours;
+  timeSpans[2].textContent = minutes< 10? `0${minutes}`:minutes;
+  timeSpans[3].textContent = seconds < 10? `0${seconds}`:seconds;
 
   if (remaning < 0) {
     clearInterval(timeCount);
