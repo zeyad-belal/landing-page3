@@ -48,6 +48,8 @@ window.addEventListener("scroll", () => {
   scroller.style.width = `${(scrollTop / (height + 1800)) * 100}%`;
 });
 
+
+
 //event countdown
 
 let eventDate = new Date("Dec 31, 2023 23:59:59").getTime();
@@ -78,3 +80,26 @@ let timeCount = setInterval(() => {
     clearInterval(timeCount);
   }
 }, 1000);
+
+
+// Video Section 
+let titles = document.querySelectorAll(".titles li")
+let titlesArray = Array.from(titles)
+let iframes = document.querySelectorAll(".my-video")
+let iframesArray = Array.from(iframes)
+
+
+titlesArray.forEach((title)=>{
+  title.addEventListener("click", (e)=>{
+    titlesArray.forEach((title)=>{
+      title.classList.remove("clicked")
+    })
+    e.target.classList.add("clicked")
+    iframesArray.forEach((iframe)=>{
+      iframe.classList.remove("active")
+    })
+    document.querySelector(e.currentTarget.dataset.num).classList.add("active")
+  })
+  
+})
+
